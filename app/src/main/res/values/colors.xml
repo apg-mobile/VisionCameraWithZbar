@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Theme Default-->
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorAccent">@color/gray</color>
+
+    <!--Theme Orange-->
+    <color name="colorPrimaryOrange">@color/orange</color>
+    <color name="colorPrimaryDarkOrange">@color/orange</color>
+
+    <!--Theme Green-->
+    <color name="colorPrimaryGreen">@color/deep_green</color>
+    <color name="colorPrimaryDarkGreen">@color/deep_green</color>
+
+    <color name="background">@color/light_gray</color>
+    <color name="disable">@color/dark_gray</color>
+
+    <color name="black_transparent">#90000000</color>
+    <color name="login_field">#d7ffffff</color>
+
+    <color name="manifest_incomplete">#ffeeee</color>
+    <color name="manifest_complete">#dcefdc</color>
+    <color name="new_manifest_complete">#c9f2c9</color>
+    <color name="new_manifest_incomplete">#fcd9d9</color>
+    <color name="manifest_send">#ffffff</color>
+
+    <color name="black">#363636</color>
+    <color name="home_black">#3A3A3A</color>
+    <color name="blue">#0062ff</color>
+    <color name="soft_black">#FF333333</color>
+    <color name="soft_black_click">#292929</color>
+    <color name="deep_soft_black">#232323</color>
+    <color name="gray">#4e4e4e</color>
+    <color name="white">#ffffff</color>
+    <color name="white_op90">#E6ffffff</color>
+    <color name="grey_1">#c8c7cc</color>
+    <color name="grey_1_opa90">#E6c8c7cc</color>
+    <color name="dark_gray">#7b7b7b</color>
+    <color name="dark_gray_transparent">#98c9c9c9</color>
+    <color name="light_gray">#f2ecec</color>
+    <color name="grey">#e6e6e7</color>
+    <color name="green">#01bf20</color>
+    <color name="deep_green">#30ac64</color>
+    <color name="deep_deep_green">#198446</color>
+    <color name="dark_green">#007814</color>
+    <color name="yellow_warning">#DBB400</color>
+    <color name="red">#ff3939</color>
+    <color name="dark_red">#ae2727</color>
+    <color name="orange">#fb5240</color>
+    <color name="dark_orange">#c04021</color>
+
+    <color name="actionbar_opacity">#33000000</color>
+</resources>

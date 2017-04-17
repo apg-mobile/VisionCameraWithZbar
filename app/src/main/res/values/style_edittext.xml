@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="App.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textAppearance">@style/App.TextAppearance</item>
+        <item name="android:background">@drawable/edittext_default</item>
+    </style>
+
+    <style name="App.EditText.Search" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColorHint">@color/dark_gray</item>
+        <item name="android:textAppearance">@style/App.TextAppearance</item>
+        <item name="android:background">@drawable/rectangle_gray_corner</item>
+    </style>
+
+</resources>

@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="actionBar_size">56dp</dimen>
+    <dimen name="actionBar_size_extra_interval_default">72dp</dimen>
+
+    <dimen name="button_height">60dp</dimen>
+
+    <dimen name="button_corner">6dp</dimen>
+    <dimen name="search_corner">8dp</dimen>
+
+    <dimen name="interval_smalled">4dp</dimen>
+    <dimen name="interval_small">8dp</dimen>
+    <dimen name="interval_default">16dp</dimen>
+    <dimen name="interval_large">24dp</dimen>
+    <dimen name="interval_xlarge">32dp</dimen>
+
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_default">18sp</dimen>
+    <dimen name="font_large">22sp</dimen>
+    <dimen name="font_xlarge">26sp</dimen>
+    <dimen name="font_xxlarge">36sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

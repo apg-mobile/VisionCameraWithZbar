@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">VisionCameraWithZbar</string>
+
+    <!--Camera-->
+    <string name="label_scan_by_gun_mode">Scan By Barcode Scanner</string>
+    <string name="ok">OK</string>
+    <string name="low_storage_error">QR-Code detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="dialog_title_camera_permission">Require camera permission</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="label_take_photo">Please take photo of shipment before continue.</string>
+    <string name="edt_camera_scan_input">Scan or Input QR-Code here..</string>
+    <string name="label_send">SEND</string>
+
+    <!-- DIALOG -->
+    <string name="dialog_positive">OK</string>
+    <string name="dialog_negative">Cancel</string>
+    <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_title_error">Error</string>
+    <string name="dialog_message_loading">Loading</string>
+    <string name="dialog_message_no_internet">No internet connection, please check..</string>
+    <string name="dialog_complete_positive">OK</string>
+    <string name="dialog_complete_negative">Cancel</string>
+    <string name="dialog_permission_positive">fix</string>
+    <string name="dialog_permission_title">Need App Permission !</string>
+    <string name="dialog_in_scan_title">Are you sure you want to exit?</string>
+    <string name="dialog_in_scan_message">Your order will be cancelled.</string>
+    <string name="confirm_customer_received_skip">SKIP</string>
+    <string name="confirm_customer_received_skip_delay">SKIP(%s)</string>
+
+</resources>

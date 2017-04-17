@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="App.Button" parent="Widget.AppCompat.Button">
+        <item name="android:paddingLeft">@dimen/interval_default</item>
+        <item name="android:paddingRight">@dimen/interval_default</item>
+        <item name="android:height">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/App.TextAppearance.White</item>
+    </style>
+
+    <style name="App.Button.Green">
+        <item name="android:background">@drawable/button_green_corner</item>
+
+    </style>
+
+    <style name="App.Button.Red">
+        <item name="android:background">@drawable/button_red_corner</item>
+    </style>
+
+    <style name="App.Button.Offline">
+        <item name="android:background">@drawable/button_offline_corner</item>
+        <item name="android:textColor">@color/yellow_warning</item>
+    </style>
+
+    <style name="App.Button.Dialog">
+        <item name="android:background">@drawable/listitem_white</item>
+        <item name="android:textAppearance">@style/App.TextAppearance.Small</item>
+    </style>
+
+    <!--Theme Orange-->
+    <style name="AppTheme.Orange.Button.White" parent="App.Button">
+        <item name="android:background">@drawable/button_white_corner</item>
+        <item name="android:textAppearance">@style/App.TextAppearance.DarkOrange</item>
+        <item name="android:textColor">@color/dark_orange</item>
+    </style>
+
+    <!--Theme Green-->
+    <style name="AppTheme.Green.Button.White" parent="App.Button">
+        <item name="android:background">@drawable/button_white_corner</item>
+        <item name="android:textAppearance">@style/App.TextAppearance.DeepDeepGreen</item>
+        <item name="android:textColor">@color/deep_green</item>
+    </style>
+
+</resources>
