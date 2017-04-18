@@ -32,6 +32,10 @@ import org.androidannotations.annotations.InstanceState;
 import org.androidannotations.annotations.ViewById;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
@@ -60,10 +64,13 @@ public class VisionCameraFragment extends Fragment implements
 
     private ZBarScannerView mScannerView;
 
+    private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mScannerView = new ZBarScannerView(getActivity());
+        setUpFormats();
         return mScannerView;
     }
 
@@ -167,6 +174,7 @@ public class VisionCameraFragment extends Fragment implements
             mScannerView.setResultHandler(resultHandler);
             mScannerView.startCamera();
             mScannerView.setAutoFocus(true);
+            mScannerView.setFormats(formats);
         }
 
     }
@@ -318,6 +326,15 @@ public class VisionCameraFragment extends Fragment implements
                 }
             }
         }
+    }
+
+    private void setUpFormats(){
+        // supported formats
+        formats.add(BarcodeFormat.CODE39);
+        formats.add(BarcodeFormat.CODE93);
+        formats.add(BarcodeFormat.CODE128);
+        formats.add(BarcodeFormat.QRCODE);
+
     }
 
 }
