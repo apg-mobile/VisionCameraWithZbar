@@ -44,8 +44,6 @@ public class SimpleScannerActivity extends BaseScannerActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            mVisionRemote.stopDetectBarcode();
-
             navigateToResultActivity();
 
         }

@@ -19,11 +19,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.example.visionCameraWithZbar.R;
@@ -44,7 +43,6 @@ import me.dm7.barcodescanner.core.IViewFinder;
 import me.dm7.barcodescanner.core.ViewFinderView;
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
-import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 /**
  * Created by X-tivity on 1/10/2017 AD.
@@ -68,20 +66,23 @@ public class VisionCameraFragment extends Fragment implements
     protected boolean isUseFlash;
     @FragmentArg
     protected boolean isAutoFocus;
+    @ViewById
+    protected FrameLayout contentFrame;
 
-    private ZBarScannerView mScannerView;
+    private AlphaZBarScanner mScannerView;
 
     private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>();
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mScannerView = new ZBarScannerView(getActivity()){
+        mScannerView = new AlphaZBarScanner(getActivity()){
             @Override
             protected IViewFinder createViewFinderView(Context context) {
                 return new CustomViewFinderView(context);
             }
         };
+
         setUpFormats();
         return mScannerView;
     }
@@ -191,7 +192,7 @@ public class VisionCameraFragment extends Fragment implements
 
     }
 
-    ZBarScannerView.ResultHandler resultHandler = new ZBarScannerView.ResultHandler() {
+    AlphaZBarScanner.ResultHandler resultHandler = new AlphaZBarScanner.ResultHandler() {
         @Override
         public void handleResult(Result result) {
             presenter.onDetectBarcode(result.getContents());
@@ -357,42 +358,20 @@ public class VisionCameraFragment extends Fragment implements
 
         public CustomViewFinderView(Context context) {
             super(context);
-         //   init();
+            setSquareViewFinder(true);
+
         }
 
         public CustomViewFinderView(Context context, AttributeSet attrs) {
             super(context, attrs);
-         //   init();
-        }
-
-        private void init() {
-            PAINT.setColor(Color.WHITE);
-            PAINT.setAntiAlias(true);
-            float textPixelSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                    TRADE_MARK_TEXT_SIZE_SP, getResources().getDisplayMetrics());
-            PAINT.setTextSize(textPixelSize);
             setSquareViewFinder(true);
         }
 
         @Override
         public void onDraw(Canvas canvas) {
-            //super.onDraw(canvas);  for removing all the default animation
+            super.onDraw(canvas);
         }
 
-
-        private void drawTradeMark(Canvas canvas) {
-            Rect framingRect = getFramingRect();
-            float tradeMarkTop;
-            float tradeMarkLeft;
-            if (framingRect != null) {
-                tradeMarkTop = framingRect.bottom + PAINT.getTextSize() + 10;
-                tradeMarkLeft = framingRect.left;
-            } else {
-                tradeMarkTop = 10;
-                tradeMarkLeft = canvas.getHeight() - PAINT.getTextSize() - 10;
-            }
-            canvas.drawText(TRADE_MARK_TEXT, tradeMarkLeft, tradeMarkTop, PAINT);
-        }
     }
 
 }
