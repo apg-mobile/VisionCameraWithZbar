@@ -142,16 +142,18 @@ public class AlphaZBarScanner extends BarcodeScannerView {
                     // use getDataBytes() rather than getData() which uses C strings.
                     // Weirdly ZBar transforms all data to UTF-8, even the data returned
                     // by getDataBytes() so we have to decode it as UTF-8.
-                    String symData;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                        symData = new String(sym.getDataBytes(), StandardCharsets.UTF_8);
-                    } else {
-                        symData = sym.getData();
-                    }
-                    if (!TextUtils.isEmpty(symData)) {
-                        rawResult.setContents(symData);
-                        rawResult.setBarcodeFormat(BarcodeFormat.getFormatById(sym.getType()));
-                        break;
+                    if(sym.getDataBytes()!=null) {
+                        String symData;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                            symData = new String(sym.getDataBytes(), StandardCharsets.UTF_8);
+                        } else {
+                            symData = sym.getData();
+                        }
+                        if (!TextUtils.isEmpty(symData)) {
+                            rawResult.setContents(symData);
+                            rawResult.setBarcodeFormat(BarcodeFormat.getFormatById(sym.getType()));
+                            break;
+                        }
                     }
                 }
 
