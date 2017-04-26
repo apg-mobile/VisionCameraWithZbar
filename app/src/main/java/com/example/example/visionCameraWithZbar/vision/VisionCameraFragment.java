@@ -66,8 +66,6 @@ public class VisionCameraFragment extends Fragment implements
     protected boolean isUseFlash;
     @FragmentArg
     protected boolean isAutoFocus;
-    @ViewById
-    protected FrameLayout contentFrame;
 
     private AlphaZBarScanner mScannerView;
 
@@ -302,6 +300,12 @@ public class VisionCameraFragment extends Fragment implements
         }
     }
 
+    @Override
+    public void resumePreview() {
+        if(isVisible() && mScannerView!=null) {
+            mScannerView.resumeCameraPreview(resultHandler);
+        }
+    }
 
     @Override
     public void pauseCamera() {
@@ -350,11 +354,8 @@ public class VisionCameraFragment extends Fragment implements
 
     }
 
+    // This method can be used to customise the visionFragment layout
     private static class CustomViewFinderView extends ViewFinderView {
-        public static final String TRADE_MARK_TEXT = "ZBar";
-        public static final int TRADE_MARK_TEXT_SIZE_SP = 40;
-
-        public final Paint PAINT = new Paint();
 
         public CustomViewFinderView(Context context) {
             super(context);
@@ -371,7 +372,6 @@ public class VisionCameraFragment extends Fragment implements
         public void onDraw(Canvas canvas) {
             super.onDraw(canvas);
         }
-
     }
 
 }

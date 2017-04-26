@@ -81,8 +81,12 @@ public class VisionCameraPresenter implements VisionCameraContract.Presenter {
 
     @Override
     public void onDetectBarcode(String rawValue) {
-        if (mView.getCommunicator() != null) {
-            mView.getCommunicator().onDetectBarcode(rawValue);
+        if(rawValue!=null && !rawValue.isEmpty()) {
+            if (mView.getCommunicator() != null) {
+                mView.getCommunicator().onDetectBarcode(rawValue);
+            }
+        }else{
+            mView.resumePreview();
         }
     }
 

@@ -42,6 +42,8 @@ public interface VisionCameraContract {
         void hidePauseCameraView();
 
         boolean isHardwareKeyboardAvailable();
+
+        void resumePreview();
     }
 
     interface Presenter {
