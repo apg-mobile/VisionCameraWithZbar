@@ -130,8 +130,13 @@ public class AlphaZBarScanner extends BarcodeScannerView {
 
             Image barcode = new Image(width, height, "Y800");
             barcode.setData(data);
+
+            // Added these two lines(to calculate the framing rect to crop the preview image).
+            // It is not in the original file(https://github.com/dm77/barcodescanner)
             calculateFramingRect(width,height);
             barcode.setCrop(mFramingRect.left,mFramingRect.top,mFramingRect.width(),mFramingRect.height());
+            /******************************************************************/
+
             int result = mScanner.scanImage(barcode);
 
             if (result != 0) {
@@ -142,18 +147,16 @@ public class AlphaZBarScanner extends BarcodeScannerView {
                     // use getDataBytes() rather than getData() which uses C strings.
                     // Weirdly ZBar transforms all data to UTF-8, even the data returned
                     // by getDataBytes() so we have to decode it as UTF-8.
-                    if(sym.getDataBytes()!=null) {
-                        String symData;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                            symData = new String(sym.getDataBytes(), StandardCharsets.UTF_8);
-                        } else {
-                            symData = sym.getData();
-                        }
-                        if (!TextUtils.isEmpty(symData)) {
-                            rawResult.setContents(symData);
-                            rawResult.setBarcodeFormat(BarcodeFormat.getFormatById(sym.getType()));
-                            break;
-                        }
+                    String symData;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                        symData = new String(sym.getDataBytes(), StandardCharsets.UTF_8);
+                    } else {
+                        symData = sym.getData();
+                    }
+                    if (!TextUtils.isEmpty(symData)) {
+                        rawResult.setContents(symData);
+                        rawResult.setBarcodeFormat(BarcodeFormat.getFormatById(sym.getType()));
+                        break;
                     }
                 }
 
@@ -174,7 +177,7 @@ public class AlphaZBarScanner extends BarcodeScannerView {
                     }
                 });
             } else {
-                camera.setOneShotPreviewCallback(this);
+                camera.setPreviewCallback(this); // changed this from setOneShotPreviewCallback to setPreviewCallback
             }
         } catch(RuntimeException e) {
             // TODO: Terrible hack. It is possible that this method is invoked after camera is released.
